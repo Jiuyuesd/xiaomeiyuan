@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="小美愿官方站点：用户服务协议、隐私政策与产品说明。适用于 App Store 审核与用户使用查阅。" />
+  <meta name="theme-color" content="#1a0f2e" />
+  <title>小美愿 · 官方网站</title>
+  <!--
+    Google Sites 部署说明：
+    1. 新建站点 → 插入 → 嵌入 → 嵌入代码 → 粘贴本文件全部 HTML（或仅 body 内内容）
+    2. 另建两个页面分别嵌入 privacy-policy.html、user-agreement.html
+    3. 将下方「法律文档」卡片中的 href 改为 Google Sites 对应子页面的完整网址
+    4. 建议页面宽度设为「全宽」，嵌入高度 ≥ 1200px 或按内容自适应
+  -->
+  <style>
+    :root {
+      --bg-deep: #0f0a18;
+      --bg-mid: #1a0f2e;
+      --card: rgba(255, 255, 255, 0.07);
+      --card-hover: rgba(255, 255, 255, 0.11);
+      --text: #f5f0ff;
+      --muted: #b8a8d4;
+      --accent: #c585fc;
+      --accent-soft: #9d6dd9;
+      --success: #6ee7b7;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+      --max: 920px;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg-deep);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(197, 133, 252, 0.28), transparent),
+        radial-gradient(ellipse 60% 40% at 100% 50%, rgba(124, 58, 237, 0.12), transparent),
+        linear-gradient(165deg, var(--bg-mid) 0%, var(--bg-deep) 50%, #12081f 100%);
+      -webkit-text-size-adjust: 100%;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.85; text-decoration: underline; }
+    .page { max-width: var(--max); margin: 0 auto; padding: 32px 20px 56px; }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 40px 24px 36px;
+      margin-bottom: 32px;
+      border-radius: calc(var(--radius) + 4px);
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(197, 133, 252, 0.15), transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; }
+    .logo {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 18px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, var(--accent-soft), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      box-shadow: 0 8px 28px rgba(197, 133, 252, 0.4);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 36px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .hero .tagline {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .hero .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+    .badge {
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(197, 133, 252, 0.18);
+      border: 1px solid rgba(197, 133, 252, 0.35);
+      color: var(--accent);
+    }
+
+    /* Section */
+    .section { margin-bottom: 36px; }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+      padding-left: 2px;
+    }
+    .section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .section p.lead {
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    /* Features */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+    .card .icon { font-size: 28px; margin-bottom: 10px; }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Legal cards */
+    .legal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .legal-card {
+      display: block;
+      background: linear-gradient(145deg, rgba(197, 133, 252, 0.12), var(--card));
+      border: 1px solid rgba(197, 133, 252, 0.25);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      color: inherit;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .legal-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      text-decoration: none;
+      opacity: 1;
+    }
+    .legal-card .doc-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(197, 133, 252, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+    .legal-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .legal-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+    .legal-card .cta {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .legal-card .cta::after { content: " →"; }
+
+    /* Notice box */
+    .notice {
+      background: rgba(110, 231, 183, 0.08);
+      border: 1px solid rgba(110, 231, 183, 0.25);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .notice strong { color: var(--success); }
+
+    /* Contact */
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+    }
+    .contact-list { list-style: none; }
+    .contact-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .contact-list li:last-child { border-bottom: none; }
+    .contact-list strong { color: var(--text); font-weight: 600; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 28px;
+      margin-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    footer .links { margin-top: 10px; }
+    footer .links a { margin: 0 10px; }
+
+    @media (max-width: 480px) {
+      .page { padding: 20px 14px 40px; }
+      .hero { padding: 28px 16px 24px; }
+      .legal-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="logo" aria-hidden="true">✨</div>
+        <h1>小美愿</h1>
+        <p class="tagline">美好社交 · 尽在小美愿</p>
+        <p class="tagline" style="font-size: 14px; margin-top: 4px;">魔法社交应用 · 官方信息与法律文档</p>
+        <div class="badge-row">
+          <span class="badge">祈愿池</span>
+          <span class="badge">我的魔镜</span>
+          <span class="badge">实名认证</span>
+          <span class="badge">iOS</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="about">
+      <p class="section-title">关于产品</p>
+      <h2>一款为真实相遇而生的社交应用</h2>
+      <p class="lead">
+        小美愿连接祈愿池、个人魔镜与消息互动，鼓励用户以真诚的心愿表达开启同频社交。
+        我们重视社区安全，提供实名认证、隐私设置与安全中心，帮助您在数字世界中安心相遇。
+      </p>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🌟</div>
+          <h3>祈愿池</h3>
+          <p>浏览同频旅人的心声，发出你的祈愿，在话题流动中发现共鸣。</p>
+        </div>
+        <div class="card">
+          <div class="icon">🪞</div>
+          <h3>我的魔镜</h3>
+          <p>展示个人资料，管理关注、粉丝与好友，打造属于你的社交名片。</p>
+        </div>
+        <div class="card">
+          <div class="icon">💬</div>
+          <h3>消息互动</h3>
+          <p>与在意的人保持联系，在应用内接收新消息提醒（以实际上线功能为准）。</p>
+        </div>
+        <div class="card">
+          <div class="icon">✓</div>
+          <h3>实名认证</h3>
+          <p>自愿完成实名校验，获得「已实名」标识，共建真实、可信赖的社区环境。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="legal">
+      <p class="section-title">法律文档</p>
+      <h2>用户协议与隐私政策</h2>
+      <p class="lead">
+        以下文档适用于小美愿 iOS 客户端，并可供 App Store 审核、用户查阅及本站点公开展示。
+        使用应用前请仔细阅读；注册登录即表示您理解并同意相关条款。
+      </p>
+      <div class="legal-grid">
+        <!-- Google Sites：将 href 改为对应子页面的完整 URL -->
+        <a class="legal-card" href="user-agreement.html" id="link-terms">
+          <div class="doc-icon">📄</div>
+          <h3>用户服务协议</h3>
+          <p>服务说明、账号规范、实名认证要求、用户行为准则、虚拟商品与 Apple 应用内购买、免责声明及争议解决等。</p>
+          <span class="cta">阅读完整协议</span>
+        </a>
+        <a class="legal-card" href="privacy-policy.html" id="link-privacy">
+          <div class="doc-icon">🛡️</div>
+          <h3>隐私政策</h3>
+          <p>信息收集与使用、短信验证码、权限说明、数据存储与安全、您的权利、未成年人保护及联系我们等。</p>
+          <span class="cta">阅读隐私政策</span>
+        </a>
+      </div>
+      <p style="margin-top: 14px; font-size: 12px; color: var(--muted);">
+        生效日期：2026年5月20日 · 文档版本与 App 内展示同步
+      </p>
+    </section>
+
+    <section class="section">
+      <p class="section-title">合规说明</p>
+      <div class="notice">
+        <strong>App Store 与用户使用</strong><br />
+        本页面及子页面提供的隐私政策 URL、用户协议 URL 可用于 App Store Connect 填写。
+        本应用面向年满 <strong>18 周岁</strong> 用户；不面向未成年人提供服务。
+        我们遵循最小必要原则收集个人信息，不会在未经同意的情况下出售您的数据。
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <p class="section-title">联系我们</p>
+      <h2>客服与反馈</h2>
+      <div class="contact-box">
+        <ul class="contact-list">
+          <li><strong>客服邮箱</strong><br /><a href="mailto:support@xiaomeiyuan.app">support@xiaomeiyuan.app</a></li>
+          <li><strong>应用内反馈</strong><br />我的 → 联系客服 → 在线留言 / 用户反馈</li>
+          <li><strong>账号与隐私</strong><br />我的 → 常用设置 / 安全中心（退出登录、注销账号、权限说明）</li>
+          <li><strong>运营主体</strong><br />以 App Store 公示及本站点备案信息为准</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 小美愿 · 保留所有权利</p>
+      <p class="links">
+        <a href="user-agreement.html">用户协议</a>
+        <a href="privacy-policy.html">隐私政策</a>
+        <a href="#about">关于</a>
+        <a href="#contact">联系</a>
+      </p>
+      <p style="margin-top: 12px; font-size: 11px; opacity: 0.75;">
+        本站由 Google Sites 或自有域名托管 · 技术页 HTML 位于应用工程 Modules/Legal/Web
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
